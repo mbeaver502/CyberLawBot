@@ -339,7 +339,7 @@ def main():
     except Exception as e:
         log.critical(e)
         log.info('*** END LOG ***')
-        eixt(-1)
+        exit(-1)
 
     try:
         api = twitter.Api(consumer_key='',
