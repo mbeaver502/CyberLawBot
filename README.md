@@ -65,7 +65,7 @@ The table should have the following format:
 * It would be nice to post a tweet when a bill is _updated_ (i.e., new action taken). That was the intent behind the `updated` field in the database table.
 
 # Documentation
-All documentation is in the modules or in the `doc` directory. Use [pydoc](https://docs.python.org/2/library/pydoc.html) to see the documentation:
+All documentation is in the modules or in the [doc](/doc/) directory. Use [pydoc](https://docs.python.org/2/library/pydoc.html) to see the documentation:
 
 ```
 $ pydoc <module>
