@@ -47,7 +47,7 @@ The table should have the following format:
 | full_url   | varchar(2048)    | NO   |     | NULL    |                | <-- Full www.congress.gov URL
 | short_url  | varchar(1024)    | YES  |     | NULL    |                | <-- Shortened is.gd URL
 | introduced | date             | YES  |     | NULL    |                | <-- Introduction date (YYYY-MM-DD)
-| updated    | date             | YES  |     | NULL    |                | <-- Currently _not_ used
+| updated    | date             | YES  |     | NULL    |                | <-- Last update date (_not_ used)
 | posted     | tinyint(1)       | NO   |     | 0       |                | <-- Boolean (0 = False, 1 = True)
 +------------+------------------+------+-----+---------+----------------+
 ```
@@ -73,44 +73,30 @@ $ pydoc <module>
 
 # Libraries
 This program makes use of the following libraries.
-## lxml
-Stephan Richter / Infrae
+* lxml
+    * Stephan Richter / Infrae
+    * BSD License
+    * Web: [http://lxml.de/](http://lxml.de/)
 
-BSD License
+* xmltodict        
+    * Martin Blech & contribs.    
+    * MIT License
+    * Web: [Github](https://github.com/martinblech/xmltodict)
 
-Web: [http://lxml.de/](http://lxml.de/)
+* python-twitter    
+    * Mike Taylor ('bear') & contribs.
+    * Apache License 2.0
+    * Web: [Github](https://github.com/bear/python-twitter)
 
+* requests
+    * Kenneth Reitz
+    * Apache License 2.0
+    * Web: [http://docs.python-requests.org/en/master](http://docs.python-requests.org/en/master)
 
-## xmltodict        
-Martin Blech & contribs.    
-
-MIT License
-
-Web: [Github](https://github.com/martinblech/xmltodict)
-
-
-## python-twitter    
-Mike Taylor ('bear') & contribs.
-
-Apache License 2.0
-
-Web: [Github](https://github.com/bear/python-twitter)
-
-
-## requests
-Kenneth Reitz
-
-Apache License 2.0
-
-Web: [http://docs.python-requests.org/en/master](http://docs.python-requests.org/en/master)
-
-
-## MySQL Connector
-Oracle & affiliates
-
-Misc. License
-
-Web: [https://dev.mysql.com/doc/connector-python/en/](https://dev.mysql.com/doc/connector-python/en/)
+* MySQL Connector
+    * Oracle & affiliates
+    * Misc. License
+    * Web: [https://dev.mysql.com/doc/connector-python/en/](https://dev.mysql.com/doc/connector-python/en/)
 
 
 # License:
