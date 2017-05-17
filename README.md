@@ -31,8 +31,8 @@ $ python engine.py
 All information is logged to [cyber_law_bot.log](cyber_law_bot.log).
 
 ## Database Structure
-The database is assumed to be 'cyber_law_bot'. You can change that in [confing.ini](config.ini).
-There should be a table in the database called 'bills'. Again, you can change that in [confing.ini](config.ini).
+The database is assumed to be `cyber_law_bot`. You can change that in [confing.ini](config.ini).
+There should be a table in the database called `bills`. Again, you can change that in [confing.ini](config.ini).
 
 The table should have the following format:
 ```

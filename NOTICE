@@ -1,0 +1,46 @@
+NOTICE
+
+This code is made available under the Apache License 2.0 and is copyright J. Michael Beaver.
+All code from the following libraries is protected by their respective licenses and is
+copyright their respective authors:
+    lxml
+        Stephan Richter / Infrae
+        BSD License
+        http://lxml.de/
+
+    xmltodict        
+        Martin Blech & contribs.    
+        MIT License
+        https://github.com/martinblech/xmltodict
+
+    python-twitter    
+        Mike Taylor ('bear') & contribs.
+        Apache License 2.0
+        https://github.com/bear/python-twitter
+
+    requests
+        Kenneth Reitz
+        Apache License 2.0
+        http://docs.python-requests.org/en/master
+
+    MySQL Connector
+        Oracle & affiliates
+        Misc. License
+        https://dev.mysql.com/doc/connector-python/en/
+
+See the following references for additional information:
+    https://www.gpo.gov/fdsys/bulkdata/BILLSTATUS/resources/BILLSTATUS-XML_User-Guide-v1.pdf
+    https://github.com/usgpo/bill-status/blob/master/BILLSTATUS-XML_User_User-Guide.md
+    https://projects.propublica.org/api-docs/congress-api/endpoints/
+    https://github.com/bear/python-twitter
+    https://github.com/martinblech/xmltodict
+    http://docs.python-requests.org/en/master
+    https://dev.mysql.com/doc/connector-python/en/
+    http://lxml.de/
+    https://www.python.org/dev/peps/pep-0249
+    https://is.gd/apishorteningreference.php
+    https://www.pantz.org/software/mysql/mysqlcommands.html
+    https://bitbucket.org/ned/coveragepy/commits/f8e9d62f1412
+    https://www.govtrack.us/api/v2/role
+    https://choosealicense.com/licenses/apache-2.0/
+    https://docs.python.org/2/howto/logging.html
