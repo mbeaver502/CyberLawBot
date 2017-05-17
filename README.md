@@ -39,16 +39,16 @@ The table should have the following format:
 +------------+------------------+------+-----+---------+----------------+
 | Field      | Type             | Null | Key | Default | Extra          |
 +------------+------------------+------+-----+---------+----------------+
-| id         | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
-| type       | varchar(10)      | NO   |     | NULL    |                |
-| number     | int(11)          | NO   |     | NULL    |                |
-| sponsor    | varchar(256)     | NO   |     | NULL    |                |
-| title      | varchar(2048)    | NO   |     | NULL    |                |
-| full_url   | varchar(2048)    | NO   |     | NULL    |                |
-| short_url  | varchar(1024)    | YES  |     | NULL    |                |
-| introduced | date             | YES  |     | NULL    |                |
+| id         | int(10) unsigned | NO   | PRI | NULL    | auto_increment | <-- Unique id for reach row
+| type       | varchar(10)      | NO   |     | NULL    |                | <-- Bill type (e.g., 'S', 'HR', etc.)
+| number     | int(11)          | NO   |     | NULL    |                | <-- Bill number (e.g., 999)
+| sponsor    | varchar(256)     | NO   |     | NULL    |                | <-- Bill sponsor (e.g., Sen. Smith, John [D-AL])
+| title      | varchar(2048)    | NO   |     | NULL    |                | <-- Bill title (e.g., "An Act to XYZ")
+| full_url   | varchar(2048)    | NO   |     | NULL    |                | <-- Full www.congress.gov URL
+| short_url  | varchar(1024)    | YES  |     | NULL    |                | <-- Shortened is.gd URL
+| introduced | date             | YES  |     | NULL    |                | <-- Introduction date (YYYY-MM-DD)
 | updated    | date             | YES  |     | NULL    |                | <-- Currently _not_ used
-| posted     | tinyint(1)       | NO   |     | 0       |                |
+| posted     | tinyint(1)       | NO   |     | 0       |                | <-- Boolean (0 = False, 1 = True)
 +------------+------------------+------+-----+---------+----------------+
 ```
 
