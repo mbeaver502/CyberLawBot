@@ -1,0 +1,177 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module engine</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>engine</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a></font></td></tr></table>
+    <p><tt>Description:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;program&nbsp;implements&nbsp;a&nbsp;simple&nbsp;Twitter&nbsp;bot&nbsp;that&nbsp;tweets&nbsp;information&nbsp;about&nbsp;bills&nbsp;in&nbsp;Congress<br>
+&nbsp;&nbsp;&nbsp;&nbsp;that&nbsp;are&nbsp;(in)directly&nbsp;related&nbsp;to&nbsp;cyber&nbsp;issues.&nbsp;This&nbsp;bot&nbsp;uses&nbsp;a&nbsp;MySQL&nbsp;database&nbsp;backend&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;keep&nbsp;track&nbsp;of&nbsp;bills,&nbsp;both&nbsp;posted&nbsp;and&nbsp;unposted&nbsp;(i.e.,&nbsp;tweeted&nbsp;and&nbsp;yet&nbsp;to&nbsp;be&nbsp;tweeted,&nbsp;respectively).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;For&nbsp;this&nbsp;initial&nbsp;proof&nbsp;of&nbsp;concept,&nbsp;bill&nbsp;data&nbsp;are&nbsp;scraped&nbsp;from&nbsp;the&nbsp;official&nbsp;US&nbsp;Government<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Publishing&nbsp;Office&nbsp;website.&nbsp;For&nbsp;future&nbsp;versions,&nbsp;it&nbsp;would&nbsp;probably&nbsp;be&nbsp;better&nbsp;to&nbsp;connect&nbsp;to&nbsp;a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;less&nbsp;cumbersome&nbsp;endpoint&nbsp;like&nbsp;ProPublica.<br>
+&nbsp;<br>
+Module:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;module&nbsp;implements&nbsp;the&nbsp;driver&nbsp;functionality&nbsp;for&nbsp;the&nbsp;bot.&nbsp;This&nbsp;is&nbsp;the&nbsp;main&nbsp;entrypoint.<br>
+&nbsp;<br>
+Libraries:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;program&nbsp;makes&nbsp;use&nbsp;of&nbsp;the&nbsp;following&nbsp;libraries:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lxml<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stephan&nbsp;Richter&nbsp;/&nbsp;Infrae<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BSD&nbsp;License<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://lxml.de/">http://lxml.de/</a><br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xmltodict&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Martin&nbsp;Blech&nbsp;&amp;&nbsp;contribs.&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MIT&nbsp;License<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;https://github.com/martinblech/xmltodict<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;python-twitter&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mike&nbsp;Taylor&nbsp;('bear')&nbsp;&amp;&nbsp;contribs.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Apache&nbsp;License&nbsp;2.0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;https://github.com/bear/python-twitter<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;requests<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kenneth&nbsp;Reitz<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Apache&nbsp;License&nbsp;2.0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://docs.python-requests.org/en/master">http://docs.python-requests.org/en/master</a><br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MySQL&nbsp;Connector<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Oracle&nbsp;&amp;&nbsp;affiliates<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Misc.&nbsp;License<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;https://dev.mysql.com/doc/connector-python/en/<br>
+&nbsp;<br>
+License:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Copyright&nbsp;2017&nbsp;J.&nbsp;Michael&nbsp;Beaver<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;Licensed&nbsp;under&nbsp;the&nbsp;Apache&nbsp;License,&nbsp;Version&nbsp;2.0&nbsp;(the&nbsp;"License");<br>
+&nbsp;&nbsp;&nbsp;you&nbsp;may&nbsp;not&nbsp;use&nbsp;this&nbsp;file&nbsp;except&nbsp;in&nbsp;compliance&nbsp;with&nbsp;the&nbsp;License.<br>
+&nbsp;&nbsp;&nbsp;You&nbsp;may&nbsp;obtain&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;License&nbsp;at<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a><br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;Unless&nbsp;required&nbsp;by&nbsp;applicable&nbsp;law&nbsp;or&nbsp;agreed&nbsp;to&nbsp;in&nbsp;writing,&nbsp;software<br>
+&nbsp;&nbsp;&nbsp;distributed&nbsp;under&nbsp;the&nbsp;License&nbsp;is&nbsp;distributed&nbsp;on&nbsp;an&nbsp;"AS&nbsp;IS"&nbsp;BASIS,<br>
+&nbsp;&nbsp;&nbsp;WITHOUT&nbsp;WARRANTIES&nbsp;OR&nbsp;CONDITIONS&nbsp;OF&nbsp;ANY&nbsp;KIND,&nbsp;either&nbsp;express&nbsp;or&nbsp;implied.<br>
+&nbsp;&nbsp;&nbsp;See&nbsp;the&nbsp;License&nbsp;for&nbsp;the&nbsp;specific&nbsp;language&nbsp;governing&nbsp;permissions&nbsp;and<br>
+&nbsp;&nbsp;&nbsp;limitations&nbsp;under&nbsp;the&nbsp;License.<br>
+&nbsp;<br>
+References:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;https://www.gpo.gov/fdsys/bulkdata/BILLSTATUS/resources/BILLSTATUS-XML_User-Guide-v1.pdf<br>
+&nbsp;&nbsp;&nbsp;&nbsp;https://github.com/usgpo/bill-status/blob/master/BILLSTATUS-XML_User_User-Guide.md<br>
+&nbsp;&nbsp;&nbsp;&nbsp;https://projects.propublica.org/api-docs/congress-api/endpoints/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;https://github.com/bear/python-twitter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;https://github.com/martinblech/xmltodict<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://docs.python-requests.org/en/master">http://docs.python-requests.org/en/master</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;https://dev.mysql.com/doc/connector-python/en/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://lxml.de/">http://lxml.de/</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;https://www.python.org/dev/peps/pep-0249<br>
+&nbsp;&nbsp;&nbsp;&nbsp;https://is.gd/apishorteningreference.php<br>
+&nbsp;&nbsp;&nbsp;&nbsp;https://www.pantz.org/software/mysql/mysqlcommands.html<br>
+&nbsp;&nbsp;&nbsp;&nbsp;https://bitbucket.org/ned/coveragepy/commits/f8e9d62f1412<br>
+&nbsp;&nbsp;&nbsp;&nbsp;https://www.govtrack.us/api/v2/role<br>
+&nbsp;&nbsp;&nbsp;&nbsp;https://choosealicense.com/licenses/apache-2.0/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.mysqltutorial.org/getting-started-mysql-python-connector/">http://www.mysqltutorial.org/getting-started-mysql-python-connector/</a></tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="constants.html">constants</a><br>
+<a href="lxml.html.html">lxml.html</a><br>
+<a href="json.html">json</a><br>
+</td><td width="25%" valign=top><a href="logging.html">logging</a><br>
+<a href="re.html">re</a><br>
+<a href="requests.html">requests</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+<a href="time.html">time</a><br>
+<a href="twitter.html">twitter</a><br>
+</td><td width="25%" valign=top><a href="xmltodict.html">xmltodict</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-build_tweet"><strong>build_tweet</strong></a>(row)</dt><dd><tt>Constructs&nbsp;a&nbsp;tweet&nbsp;string&nbsp;to&nbsp;be&nbsp;sent&nbsp;to&nbsp;Twitter&nbsp;API.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;row:&nbsp;Row&nbsp;of&nbsp;data&nbsp;from&nbsp;the&nbsp;database&nbsp;table&nbsp;(tuple).<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;tweet&nbsp;as&nbsp;a&nbsp;string.&nbsp;None&nbsp;if&nbsp;bad&nbsp;arg.&nbsp;A&nbsp;tweet&nbsp;string&nbsp;has<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;following&nbsp;general&nbsp;format:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bill&nbsp;&lt;type&gt;.&nbsp;&lt;number&gt;:&nbsp;["&lt;title&gt;"]&nbsp;([sponsor,]&nbsp;&lt;introduction&nbsp;date&gt;)&nbsp;|&nbsp;&lt;short&nbsp;URL&gt;<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;sponsor&nbsp;really&nbsp;is&nbsp;the&nbsp;only&nbsp;thing&nbsp;that&nbsp;can&nbsp;be&nbsp;omitted&nbsp;(e.g.,&nbsp;bad&nbsp;Twitter&nbsp;handle).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In&nbsp;exceptionally&nbsp;rare&nbsp;cases,&nbsp;the&nbsp;title&nbsp;may&nbsp;be&nbsp;omitted&nbsp;due&nbsp;to&nbsp;length.</tt></dd></dl>
+ <dl><dt><a name="-download_bills"><strong>download_bills</strong></a>()</dt><dd><tt>Downloads&nbsp;bills&nbsp;from&nbsp;GPO's&nbsp;servers.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;list&nbsp;of&nbsp;relevant&nbsp;bills,&nbsp;which&nbsp;could&nbsp;be&nbsp;empty.<br>
+&nbsp;<br>
+References:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Timing&nbsp;from&nbsp;<a href="http://stackoverflow.com/a/27780763">http://stackoverflow.com/a/27780763</a>.</tt></dd></dl>
+ <dl><dt><a name="-get_bill"><strong>get_bill</strong></a>(session, bill)</dt><dd><tt>Attempts&nbsp;to&nbsp;download&nbsp;a&nbsp;bill's&nbsp;XML&nbsp;data&nbsp;from&nbsp;GPO's&nbsp;server.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;session:&nbsp;A&nbsp;requests&nbsp;session&nbsp;object.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bill:&nbsp;The&nbsp;corresponding&nbsp;URL&nbsp;string&nbsp;for&nbsp;the&nbsp;bill.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;Bill&nbsp;object&nbsp;with&nbsp;relevant&nbsp;information&nbsp;from&nbsp;the&nbsp;XML,&nbsp;or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;None&nbsp;upon&nbsp;failure&nbsp;or&nbsp;if&nbsp;bad&nbsp;args.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;BaseException:&nbsp;Something&nbsp;horribly&nbsp;wrong&nbsp;happened&nbsp;when&nbsp;downloading.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Generally&nbsp;the&nbsp;exception&nbsp;results&nbsp;from&nbsp;a&nbsp;timeout,&nbsp;which&nbsp;is&nbsp;rare.</tt></dd></dl>
+ <dl><dt><a name="-get_bill_urls"><strong>get_bill_urls</strong></a>(data)</dt><dd><tt>Scrapes&nbsp;bill&nbsp;URLs&nbsp;from&nbsp;USGPO&nbsp;page.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;data:&nbsp;HTML&nbsp;data&nbsp;downloaded&nbsp;from&nbsp;USGPO&nbsp;page.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;list&nbsp;of&nbsp;URLs,&nbsp;one&nbsp;per&nbsp;bill&nbsp;(on&nbsp;GPO's&nbsp;servers).</tt></dd></dl>
+ <dl><dt><a name="-get_name"><strong>get_name</strong></a>(name)</dt><dd><tt>Gets&nbsp;a&nbsp;sponsor's&nbsp;name&nbsp;using&nbsp;regex.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;String&nbsp;with&nbsp;a&nbsp;name&nbsp;to&nbsp;be&nbsp;extracted.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;dict&nbsp;containing&nbsp;the&nbsp;name's&nbsp;parts&nbsp;(see&nbsp;REGEX&nbsp;and&nbsp;REGEX2).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;None&nbsp;if&nbsp;something&nbsp;went&nbsp;wrong.</tt></dd></dl>
+ <dl><dt><a name="-is_relevant"><strong>is_relevant</strong></a>(bill)</dt><dd><tt>Determines&nbsp;if&nbsp;a&nbsp;given&nbsp;bill&nbsp;meets&nbsp;set&nbsp;criteria&nbsp;for&nbsp;relevance.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bill:&nbsp;A&nbsp;Bill&nbsp;object.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;boolean&nbsp;value.&nbsp;True&nbsp;=&gt;&nbsp;relevant,&nbsp;False&nbsp;=&gt;&nbsp;irrelevant&nbsp;or&nbsp;bad&nbsp;arg.</tt></dd></dl>
+ <dl><dt><a name="-main"><strong>main</strong></a>()</dt><dd><tt>Main&nbsp;program&nbsp;driver.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Exception:&nbsp;Critical&nbsp;failure&nbsp;in&nbsp;the&nbsp;beginning.&nbsp;Immediately&nbsp;exit.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Elsewhere,&nbsp;the&nbsp;exception&nbsp;is&nbsp;reported&nbsp;and&nbsp;execution&nbsp;continues.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;BaseException:&nbsp;Critical&nbsp;failure&nbsp;in&nbsp;the&nbsp;beginning.&nbsp;Immediately&nbsp;exit.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;KeyboardInterrupt:&nbsp;Used&nbsp;to&nbsp;terminate&nbsp;the&nbsp;infinite&nbsp;loop.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>REGEX</strong> = &lt;_sre.SRE_Pattern object&gt;<br>
+<strong>REGEX2</strong> = &lt;_sre.SRE_Pattern object&gt;</td></tr></table>
+</body></html>

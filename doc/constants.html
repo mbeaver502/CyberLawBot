@@ -1,0 +1,109 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module constants</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>constants</strong></big></big> (version 0.1)</font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a></font></td></tr></table>
+    <p><tt>Description:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;program&nbsp;implements&nbsp;a&nbsp;simple&nbsp;Twitter&nbsp;bot&nbsp;that&nbsp;tweets&nbsp;information&nbsp;about&nbsp;bills&nbsp;in&nbsp;Congress<br>
+&nbsp;&nbsp;&nbsp;&nbsp;that&nbsp;are&nbsp;(in)directly&nbsp;related&nbsp;to&nbsp;cyber&nbsp;issues.&nbsp;This&nbsp;bot&nbsp;uses&nbsp;a&nbsp;MySQL&nbsp;database&nbsp;backend&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;keep&nbsp;track&nbsp;of&nbsp;bills,&nbsp;both&nbsp;posted&nbsp;and&nbsp;unposted&nbsp;(i.e.,&nbsp;tweeted&nbsp;and&nbsp;yet&nbsp;to&nbsp;be&nbsp;tweeted,&nbsp;respectively).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;For&nbsp;this&nbsp;initial&nbsp;proof&nbsp;of&nbsp;concept,&nbsp;bill&nbsp;data&nbsp;are&nbsp;scraped&nbsp;from&nbsp;the&nbsp;official&nbsp;US&nbsp;Government<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Publishing&nbsp;Office&nbsp;website.&nbsp;For&nbsp;future&nbsp;versions,&nbsp;it&nbsp;would&nbsp;probably&nbsp;be&nbsp;better&nbsp;to&nbsp;connect&nbsp;to&nbsp;a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;less&nbsp;cumbersome&nbsp;endpoint&nbsp;like&nbsp;ProPublica.<br>
+&nbsp;<br>
+Module:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;module&nbsp;containts&nbsp;all&nbsp;program&nbsp;constants.<br>
+&nbsp;<br>
+Libraries:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;program&nbsp;makes&nbsp;use&nbsp;of&nbsp;the&nbsp;following&nbsp;libraries:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lxml<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stephan&nbsp;Richter&nbsp;/&nbsp;Infrae<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BSD&nbsp;License<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://lxml.de/">http://lxml.de/</a><br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xmltodict&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Martin&nbsp;Blech&nbsp;&amp;&nbsp;contribs.&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MIT&nbsp;License<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;https://github.com/martinblech/xmltodict<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;python-twitter&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mike&nbsp;Taylor&nbsp;('bear')&nbsp;&amp;&nbsp;contribs.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Apache&nbsp;License&nbsp;2.0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;https://github.com/bear/python-twitter<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;requests<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kenneth&nbsp;Reitz<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Apache&nbsp;License&nbsp;2.0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://docs.python-requests.org/en/master">http://docs.python-requests.org/en/master</a><br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MySQL&nbsp;Connector<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Oracle&nbsp;&amp;&nbsp;affiliates<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Misc.&nbsp;License<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;https://dev.mysql.com/doc/connector-python/en/<br>
+&nbsp;<br>
+License:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Copyright&nbsp;2017&nbsp;J.&nbsp;Michael&nbsp;Beaver<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;Licensed&nbsp;under&nbsp;the&nbsp;Apache&nbsp;License,&nbsp;Version&nbsp;2.0&nbsp;(the&nbsp;"License");<br>
+&nbsp;&nbsp;&nbsp;you&nbsp;may&nbsp;not&nbsp;use&nbsp;this&nbsp;file&nbsp;except&nbsp;in&nbsp;compliance&nbsp;with&nbsp;the&nbsp;License.<br>
+&nbsp;&nbsp;&nbsp;You&nbsp;may&nbsp;obtain&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;License&nbsp;at<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a><br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;Unless&nbsp;required&nbsp;by&nbsp;applicable&nbsp;law&nbsp;or&nbsp;agreed&nbsp;to&nbsp;in&nbsp;writing,&nbsp;software<br>
+&nbsp;&nbsp;&nbsp;distributed&nbsp;under&nbsp;the&nbsp;License&nbsp;is&nbsp;distributed&nbsp;on&nbsp;an&nbsp;"AS&nbsp;IS"&nbsp;BASIS,<br>
+&nbsp;&nbsp;&nbsp;WITHOUT&nbsp;WARRANTIES&nbsp;OR&nbsp;CONDITIONS&nbsp;OF&nbsp;ANY&nbsp;KIND,&nbsp;either&nbsp;express&nbsp;or&nbsp;implied.<br>
+&nbsp;&nbsp;&nbsp;See&nbsp;the&nbsp;License&nbsp;for&nbsp;the&nbsp;specific&nbsp;language&nbsp;governing&nbsp;permissions&nbsp;and<br>
+&nbsp;&nbsp;&nbsp;limitations&nbsp;under&nbsp;the&nbsp;License.<br>
+&nbsp;<br>
+References:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;https://www.gpo.gov/fdsys/bulkdata/BILLSTATUS/resources/BILLSTATUS-XML_User-Guide-v1.pdf<br>
+&nbsp;&nbsp;&nbsp;&nbsp;https://github.com/usgpo/bill-status/blob/master/BILLSTATUS-XML_User_User-Guide.md<br>
+&nbsp;&nbsp;&nbsp;&nbsp;https://projects.propublica.org/api-docs/congress-api/endpoints/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;https://github.com/bear/python-twitter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;https://github.com/martinblech/xmltodict<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://docs.python-requests.org/en/master">http://docs.python-requests.org/en/master</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;https://dev.mysql.com/doc/connector-python/en/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://lxml.de/">http://lxml.de/</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;https://www.python.org/dev/peps/pep-0249<br>
+&nbsp;&nbsp;&nbsp;&nbsp;https://is.gd/apishorteningreference.php<br>
+&nbsp;&nbsp;&nbsp;&nbsp;https://www.pantz.org/software/mysql/mysqlcommands.html<br>
+&nbsp;&nbsp;&nbsp;&nbsp;https://bitbucket.org/ned/coveragepy/commits/f8e9d62f1412<br>
+&nbsp;&nbsp;&nbsp;&nbsp;https://www.govtrack.us/api/v2/role<br>
+&nbsp;&nbsp;&nbsp;&nbsp;https://choosealicense.com/licenses/apache-2.0/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.mysqltutorial.org/getting-started-mysql-python-connector/">http://www.mysqltutorial.org/getting-started-mysql-python-connector/</a></tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>BASE_URL</strong> = 'https://www.gpo.gov/fdsys/bulkdata/BILLSTATUS/115'<br>
+<strong>BILL_TYPES_PATH</strong> = {'HCONRES': 'house-concurrent-resolution', 'HJRES': 'house-joint-resolution', 'HR': 'house-bill', 'HRES': 'house-resolution', 'S': 'senate-bill', 'SCONRES': 'senate-concurrent-resolution', 'SJRES': 'senate-joint-resolution', 'SRES': 'senate-resolution'}<br>
+<strong>BULK_PATH</strong> = 'bulkdata/BILLSTATUS/'<br>
+<strong>CONGRESS</strong> = '115'<br>
+<strong>CONGRESS_TWITTER</strong> = {'Abraham, Ralph': '@RepAbraham', 'Adams, Alma': '@RepAdams', 'Aderholt, Robert': '@Robert_Aderholt', 'Aguilar, Pete': '@reppeteaguilar', 'Alexander, Lamar': '@SenAlexander', 'Allen, Rick': '@reprickallen', 'Amash, Justin': '@justinamash', 'Amata, Aumua': '@RepAmata', 'Amodei, Mark': '@MarkAmodeiNV2', 'Arrington, Jodey': '@RepArrington', ...}<br>
+<strong>CONGRESS_URL</strong> = 'https://www.congress.gov/bill/'<br>
+<strong>HCONRES_URL</strong> = 'https://www.gpo.gov/fdsys/bulkdata/BILLSTATUS/115/hconres/'<br>
+<strong>HJRES_URL</strong> = 'https://www.gpo.gov/fdsys/bulkdata/BILLSTATUS/115/hjres/'<br>
+<strong>HOUSE_URL</strong> = 'https://www.gpo.gov/fdsys/bulkdata/BILLSTATUS/115/hr/'<br>
+<strong>HRES_URL</strong> = 'https://www.gpo.gov/fdsys/bulkdata/BILLSTATUS/115/hres/'<br>
+<strong>KEYWORDS</strong> = ['cyber', 'hacking', 'hacker', 'hacked', 'breach', 'privacy', 'Internet', 'broadband', 'crypto', 'net neutrality', 'communications', 'fcc']<br>
+<strong>ROOT_URL</strong> = 'https://www.gpo.gov/fdsys/'<br>
+<strong>SCONRES_URL</strong> = 'https://www.gpo.gov/fdsys/bulkdata/BILLSTATUS/115/sconres/'<br>
+<strong>SENATE_URL</strong> = 'https://www.gpo.gov/fdsys/bulkdata/BILLSTATUS/115/s/'<br>
+<strong>SJRES_URL</strong> = 'https://www.gpo.gov/fdsys/bulkdata/BILLSTATUS/115/sjres/'<br>
+<strong>SLEEP_LIMIT</strong> = 8<br>
+<strong>SRES_URL</strong> = 'https://www.gpo.gov/fdsys/bulkdata/BILLSTATUS/115/sres/'<br>
+<strong>TWEET_MAX_LENGTH</strong> = 116<br>
+<strong>URL_LIST</strong> = ['https://www.gpo.gov/fdsys/bulkdata/BILLSTATUS/115/s/', 'https://www.gpo.gov/fdsys/bulkdata/BILLSTATUS/115/sres/', 'https://www.gpo.gov/fdsys/bulkdata/BILLSTATUS/115/sjres/', 'https://www.gpo.gov/fdsys/bulkdata/BILLSTATUS/115/sconres/', 'https://www.gpo.gov/fdsys/bulkdata/BILLSTATUS/115/hr/', 'https://www.gpo.gov/fdsys/bulkdata/BILLSTATUS/115/hres/', 'https://www.gpo.gov/fdsys/bulkdata/BILLSTATUS/115/hjres/', 'https://www.gpo.gov/fdsys/bulkdata/BILLSTATUS/115/hconres/']<br>
+<strong>__version__</strong> = '0.1'</td></tr></table>
+</body></html>

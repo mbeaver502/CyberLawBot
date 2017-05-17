@@ -1,0 +1,110 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module dbconfig</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>dbconfig</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a></font></td></tr></table>
+    <p><tt>Description:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;program&nbsp;implements&nbsp;a&nbsp;simple&nbsp;Twitter&nbsp;bot&nbsp;that&nbsp;tweets&nbsp;information&nbsp;about&nbsp;bills&nbsp;in&nbsp;Congress<br>
+&nbsp;&nbsp;&nbsp;&nbsp;that&nbsp;are&nbsp;(in)directly&nbsp;related&nbsp;to&nbsp;cyber&nbsp;issues.&nbsp;This&nbsp;bot&nbsp;uses&nbsp;a&nbsp;MySQL&nbsp;database&nbsp;backend&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;keep&nbsp;track&nbsp;of&nbsp;bills,&nbsp;both&nbsp;posted&nbsp;and&nbsp;unposted&nbsp;(i.e.,&nbsp;tweeted&nbsp;and&nbsp;yet&nbsp;to&nbsp;be&nbsp;tweeted,&nbsp;respectively).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;For&nbsp;this&nbsp;initial&nbsp;proof&nbsp;of&nbsp;concept,&nbsp;bill&nbsp;data&nbsp;are&nbsp;scraped&nbsp;from&nbsp;the&nbsp;official&nbsp;US&nbsp;Government<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Publishing&nbsp;Office&nbsp;website.&nbsp;For&nbsp;future&nbsp;versions,&nbsp;it&nbsp;would&nbsp;probably&nbsp;be&nbsp;better&nbsp;to&nbsp;connect&nbsp;to&nbsp;a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;less&nbsp;cumbersome&nbsp;endpoint&nbsp;like&nbsp;ProPublica.<br>
+&nbsp;<br>
+Module:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;module&nbsp;implements&nbsp;the&nbsp;database&nbsp;connection&nbsp;configuration&nbsp;functionality.<br>
+&nbsp;<br>
+Libraries:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;program&nbsp;makes&nbsp;use&nbsp;of&nbsp;the&nbsp;following&nbsp;libraries:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lxml<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stephan&nbsp;Richter&nbsp;/&nbsp;Infrae<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BSD&nbsp;License<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://lxml.de/">http://lxml.de/</a><br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xmltodict&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Martin&nbsp;Blech&nbsp;&amp;&nbsp;contribs.&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MIT&nbsp;License<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;https://github.com/martinblech/xmltodict<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;python-twitter&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mike&nbsp;Taylor&nbsp;('bear')&nbsp;&amp;&nbsp;contribs.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Apache&nbsp;License&nbsp;2.0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;https://github.com/bear/python-twitter<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;requests<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kenneth&nbsp;Reitz<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Apache&nbsp;License&nbsp;2.0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://docs.python-requests.org/en/master">http://docs.python-requests.org/en/master</a><br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MySQL&nbsp;Connector<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Oracle&nbsp;&amp;&nbsp;affiliates<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Misc.&nbsp;License<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;https://dev.mysql.com/doc/connector-python/en/<br>
+&nbsp;<br>
+License:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Copyright&nbsp;2017&nbsp;J.&nbsp;Michael&nbsp;Beaver<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;Licensed&nbsp;under&nbsp;the&nbsp;Apache&nbsp;License,&nbsp;Version&nbsp;2.0&nbsp;(the&nbsp;"License");<br>
+&nbsp;&nbsp;&nbsp;you&nbsp;may&nbsp;not&nbsp;use&nbsp;this&nbsp;file&nbsp;except&nbsp;in&nbsp;compliance&nbsp;with&nbsp;the&nbsp;License.<br>
+&nbsp;&nbsp;&nbsp;You&nbsp;may&nbsp;obtain&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;License&nbsp;at<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a><br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;Unless&nbsp;required&nbsp;by&nbsp;applicable&nbsp;law&nbsp;or&nbsp;agreed&nbsp;to&nbsp;in&nbsp;writing,&nbsp;software<br>
+&nbsp;&nbsp;&nbsp;distributed&nbsp;under&nbsp;the&nbsp;License&nbsp;is&nbsp;distributed&nbsp;on&nbsp;an&nbsp;"AS&nbsp;IS"&nbsp;BASIS,<br>
+&nbsp;&nbsp;&nbsp;WITHOUT&nbsp;WARRANTIES&nbsp;OR&nbsp;CONDITIONS&nbsp;OF&nbsp;ANY&nbsp;KIND,&nbsp;either&nbsp;express&nbsp;or&nbsp;implied.<br>
+&nbsp;&nbsp;&nbsp;See&nbsp;the&nbsp;License&nbsp;for&nbsp;the&nbsp;specific&nbsp;language&nbsp;governing&nbsp;permissions&nbsp;and<br>
+&nbsp;&nbsp;&nbsp;limitations&nbsp;under&nbsp;the&nbsp;License.<br>
+&nbsp;<br>
+References:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;https://www.gpo.gov/fdsys/bulkdata/BILLSTATUS/resources/BILLSTATUS-XML_User-Guide-v1.pdf<br>
+&nbsp;&nbsp;&nbsp;&nbsp;https://github.com/usgpo/bill-status/blob/master/BILLSTATUS-XML_User_User-Guide.md<br>
+&nbsp;&nbsp;&nbsp;&nbsp;https://projects.propublica.org/api-docs/congress-api/endpoints/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;https://github.com/bear/python-twitter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;https://github.com/martinblech/xmltodict<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://docs.python-requests.org/en/master">http://docs.python-requests.org/en/master</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;https://dev.mysql.com/doc/connector-python/en/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://lxml.de/">http://lxml.de/</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;https://www.python.org/dev/peps/pep-0249<br>
+&nbsp;&nbsp;&nbsp;&nbsp;https://is.gd/apishorteningreference.php<br>
+&nbsp;&nbsp;&nbsp;&nbsp;https://www.pantz.org/software/mysql/mysqlcommands.html<br>
+&nbsp;&nbsp;&nbsp;&nbsp;https://bitbucket.org/ned/coveragepy/commits/f8e9d62f1412<br>
+&nbsp;&nbsp;&nbsp;&nbsp;https://www.govtrack.us/api/v2/role<br>
+&nbsp;&nbsp;&nbsp;&nbsp;https://choosealicense.com/licenses/apache-2.0/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.mysqltutorial.org/getting-started-mysql-python-connector/">http://www.mysqltutorial.org/getting-started-mysql-python-connector/</a></tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="ConfigParser.html">ConfigParser</a><br>
+</td><td width="25%" valign=top><a href="logging.html">logging</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-read_db_config"><strong>read_db_config</strong></a>(filename<font color="#909090">='config.ini'</font>, section<font color="#909090">='mysql'</font>)</dt><dd><tt>Reads&nbsp;database&nbsp;configuration&nbsp;from&nbsp;file.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;filename:&nbsp;The&nbsp;filename&nbsp;as&nbsp;a&nbsp;string.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;section:&nbsp;The&nbsp;INI&nbsp;section&nbsp;with&nbsp;the&nbsp;config&nbsp;information&nbsp;as&nbsp;a&nbsp;string.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;dict&nbsp;containing&nbsp;database&nbsp;configuration&nbsp;information.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Exception:&nbsp;Failure&nbsp;to&nbsp;find&nbsp;file&nbsp;or&nbsp;to&nbsp;load&nbsp;all&nbsp;config&nbsp;information.</tt></dd></dl>
+</td></tr></table>
+</body></html>
